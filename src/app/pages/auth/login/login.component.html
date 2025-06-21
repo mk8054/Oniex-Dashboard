@@ -1,0 +1,81 @@
+<div class="card">
+  <div class="card-head">
+    <div class="logo">
+      <img src="./logo.svg" alt="Logo" />
+    </div>
+    <div class="spacer"></div>
+    <div class="flex flex-col items-center">
+      Welcome Back !
+      <div class="subtitle mb-6">
+        Enter your username and password to access your account
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-2">
+        <div class="label-info">
+          <label class="label" for="username">Username</label>
+          <div
+            *ngIf="
+              loginForm.get('username')?.invalid &&
+              loginForm.get('username')?.touched
+            "
+            class="error"
+          >
+            Username is required.
+          </div>
+        </div>
+        <input
+          class="form-control"
+          [ngClass]="{
+            error:
+              loginForm.get('username')?.invalid &&
+              loginForm.get('username')?.touched
+          }"
+          id="username"
+          type="text"
+          placeholder="Enter your username"
+          formControlName="username"
+        />
+      </div>
+
+      <div class="mb-3">
+        <div class="label-info">
+          <label for="password">Password</label>
+          <div
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.touched
+            "
+            class="error"
+          >
+            Password is required.
+          </div>
+        </div>
+        <input
+          class="form-control"
+          id="password"
+          [ngClass]="{
+            error:
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.touched
+          }"
+          placeholder="Enter your password"
+          type="password"
+          formControlName="password"
+        />
+      </div>
+
+      <button type="submit" class="btn-primary" [disabled]="loginForm.invalid">
+        Login
+      </button>
+
+      <div class="mt-4 mr-2 flex justify-end items-center">
+        <a routerLink="/auth/forgot-password" class="subtitle text-[16px]">
+          Forgot Password?
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

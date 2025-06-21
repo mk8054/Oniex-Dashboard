@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "tailwindcss";
+@import "ngx-toastr/toastr";
+
+:root {
+  --primary-color: #0096ff;
+  --primary-color-faded: #e8f5ff;
+  --success-color: #00b74a;
+  --success-color-faded: #e8ffdd;
+  --warning-color: #f7931a;
+  --warning-color-faded: #fff4e7;
+  --error-color: #e73434;
+  --error-color-faded: #ffe9e9;
+  --info-color: #6338dc;
+  --info-color-faded: #f4f0ff;
+  --text-color: #111;
+  --text-color-faded: #999;
+}
+
+.toast-success {
+  @apply bg-[var(--success-color)];
+}
+
+.toast-error {
+  @apply bg-[var(--error-color)];
+}
+.toast-info {
+  @apply bg-[var(--info-color)];
+}
+.toast-warning {
+  @apply bg-[var(--warning-color)];
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+.card {
+  @apply rounded-[20px] bg-[#FCFCFC] p-[20px] drop-shadow-[0_20px_50px_rgba(0,0,0,.07)] w-full px-12;
+}
+.card-head {
+  @apply flex flex-col items-center justify-between mb-1 font-bold text-[27px] text-[#111];
+}
+
+.logo {
+  @apply my-5 mb-8;
+}
+
+.subtitle {
+  @apply text-[14px] text-[#666] font-normal text-center;
+}
+
+.btn-primary {
+  @apply bg-[var(--primary-color)] text-white rounded-[10px]  h-[60px] text-[16px] font-bold w-full flex items-center justify-center cursor-pointer;
+}
+
+.btn-primary:disabled {
+  @apply opacity-45 cursor-not-allowed;
+}
+
+.form-control {
+  @apply w-full mb-4 h-[60px] rounded-[10px] border border-[#ECECEC] px-4 text-[16px] text-[#333];
+}
+.form-control.error {
+  @apply border-[var(--error-color)] bg-[var(--error-color-faded)];
+}
+
+.form-control:focus-visible {
+  @apply border-[2px] outline-none;
+}
+
+.form-control::placeholder {
+  @apply text-[#838383] text-[16px] font-normal;
+}
+
+.label-info {
+  @apply flex items-center justify-between;
+}
+
+.label-info label {
+  @apply text-[#111111] text-[14px] font-normal;
+}
+
+.label-info .error {
+  @apply text-[var(--error-color)] text-[13px] font-semibold;
+}
